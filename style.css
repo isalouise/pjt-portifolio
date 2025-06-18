@@ -1,0 +1,307 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f5f2;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #e3b2b2;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  background: #f0cfcf;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: #d98b8b;
+}
+.logo {
+  height: 50px;
+  width: auto;
+}
+@media (max-width: 768px) {
+  .logo {
+    height: 40px;
+  }
+}
+
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: #f8f5f2;
+  animation: fadeIn 1.2s ease-in;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 500px;
+  padding: 1rem;
+  text-align: left;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 300px;
+  padding: 1rem;
+}
+
+.photo {
+  background-color: #eee;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.photo:hover {
+  transform: scale(1.05);
+}
+
+/* Trabalhos */
+.trabalhos {
+  background-color: #f1eae7;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.trabalho-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.trabalho-card {
+  background-color: #fff;
+  width: 260px;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 1s ease;
+}
+
+.trabalho-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.trabalho-img {
+  background-color: #ddd;
+  height: 150px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+.trabalho-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+
+.trabalho-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.trabalho-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.trabalho-card a {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.trabalho-card a:hover {
+  background-color: #444;
+}
+
+/* Tecnologias */
+.tecnologias {
+  background-color: #f8f5f2;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.tecnologias h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.tecnologias ul {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Footer */
+.footer {
+  background-color: #e3b2b2;
+  padding: 1rem;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content,
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .trabalho-card {
+    width: 90%;
+  }
+}
+.photo-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 480px) {
+  .hero-content h2,
+  .section-title,
+  .tecnologias h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+/* Seção "Sobre mim" com imagem à esquerda e texto à direita */
+.sobre-mim-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+   animation: fadeIn 1.5s ease-in;
+}
+
+.image-placeholder img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.sobre-texto {
+  font-size: 18px;           
+  line-height: 1.8;          
+  text-align: justify;       
+  padding: 1rem;             
+  max-width: 800px;          
+  margin: 0 auto;           
+}
+
+.sobre-texto p {
+  margin-bottom: 1.5rem;     
+}
+
+
+.container h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+

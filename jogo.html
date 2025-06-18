@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jogo da Memória</title>
+</head>
+<body>
+    <header class="navbar">
+        <img src="img/logo.png" alt="Logo" class="logo" />
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="sobre.html">Sobre mim</a>
+            <a href="jogo.html">Jogo</a>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <h1>Jogo da Memória</h1>
+        <div class="moves" aria-live="polite" aria-atomic="true" role="status">Jogadas: 0</div>
+
+        <main>
+            <section id="game-board" aria-label="Tabuleiro do jogo da memória" role="grid">  <!-- Tabuleiro do jogo -->
+            </section>
+
+            <div class="buttons-container">
+                <button id="start" aria-label="Iniciar jogo" title="Iniciar jogo">Iniciar</button>
+                <button id="restart" aria-label="Reiniciar jogo" title="Reiniciar jogo" disabled>Reiniciar</button>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Isabelly Louise. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="jogo.js"></script>
+</body>
+
+</html>
+
+
+
+

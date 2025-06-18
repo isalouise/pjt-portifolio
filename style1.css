@@ -1,0 +1,251 @@
+/* Importa fonte para tipografia limpa */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset e estilo base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #F5F3EF;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 48px;
+    width: 100%;
+}
+
+
+/* Estilo da barra de navegação */
+.navbar {
+    background-color: #e3b2b2;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Estilo do logo */
+.logo {
+  height: 50px;
+  width: auto;
+}
+@media (max-width: 768px) {
+  .logo {
+    height: 40px;
+  }
+}
+
+/* Links de navegação */
+.nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    background: #f0cfcf;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+  background: #d98b8b;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+
+/* Estilo do título */
+h1 {
+    font-weight: 600;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #DB9F9F; /* rosa coral suave */
+    margin: 20px 0;
+    user-select: none;
+    text-align: center;
+}
+
+/* Estilo do contador de jogadas */
+.moves {
+    font-weight: 600;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #000000E0;
+    user-select: none;
+}
+
+/* Container grade do tabuleiro */
+#game-board {
+    max-width: 480px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, minmax(80px, 1fr));
+    gap: 16px;
+    user-select: none;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 480px) {
+    #game-board {
+        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, minmax(70px, 1fr));
+    }
+}
+
+/* Estilo individual da carta */
+.card {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* aspecto quadrado */
+    border-radius: 16px;
+    perspective: 900px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+.card:focus {
+    outline: none;
+    border-color: #DB9F9F;
+    box-shadow: 0 0 8px #DB9F9Faa;
+}
+
+/* Parte interna que faz o efeito de virar */
+.card-inner {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 16px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Efeito de virar carta para mostrar frente */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+    cursor: default;
+}
+/* Cartas combinadas têm brilho sutil */
+.card.matched {
+    box-shadow: 0 0 15px 4px #DB9F9F;
+    cursor: default;
+}
+
+/* Frente da carta: imagem */
+.card-front {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transform: rotateY(180deg);
+}
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Verso da carta: parte que fica visível quando virada para baixo */
+.card-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #DB9F9F 0%, #F7CAC9 100%);
+    border-radius: 16px;
+    box-shadow: inset 0 0 10px #db9f9f99;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 8vw, 3rem);
+    color: #000000c7;
+    user-select: none;
+}
+
+/* Símbolo '?' no verso da carta */
+.card-back::after {
+    content: '?';
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container dos botões abaixo do tabuleiro */
+.buttons-container {
+    max-width: 480px;
+    width: 100%;
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Estilização consistente dos botões */
+button {
+    background: linear-gradient(135deg, #DB9F9F 0%, #F7CAC9 100%);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(219, 159, 159, 0.45);
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    padding: 12px 20px;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    justify-content: center;
+    min-width: 120px;
+}
+
+button:hover,
+button:focus {
+    background: linear-gradient(135deg, #f7cac9 0%, #db9f9f 100%);
+    box-shadow: 0 5px 15px rgba(219, 159, 159, 0.75);
+    outline: none;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    box-shadow: none;
+}
+footer {
+  width: 100%;
+  background-color: #e3b2b2;
+  color: #000;
+  text-align: center;
+  padding: 1rem;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
